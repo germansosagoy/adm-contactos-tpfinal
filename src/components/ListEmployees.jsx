@@ -35,7 +35,7 @@ const ListEmployees = () => {
         setState(data);
       })
       .catch((error) => {
-        alert(error.message);
+        console.log(error.message);
       });
   }, []);
 
