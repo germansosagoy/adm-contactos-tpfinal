@@ -1,0 +1,34 @@
+{
+  "employees": [
+    {
+      "id": "D6BNdWnHI",
+      "name": "Ignacio Salto",
+      "phone": "96(535) 989-2989",
+      "email": "ignaciosalto@gmail.com",
+      "company": "Globant"
+    },
+    {
+      "id": "TVobxeKbI",
+      "name": "Kamila Lopez",
+      "phone": "96(535) 989-2989",
+      "email": "kamilalopez@gmail.com",
+      "company": "Sigma"
+    },
+    {
+      "id": "E05hLAm",
+      "name": "Usuario test",
+      "phone": "123123123",
+      "email": "usuario@gmail.com",
+      "company": "USER INC",
+      "active": true
+    },
+    {
+      "id": "JsuWonl",
+      "name": "Usuario test 2",
+      "phone": "5125125125",
+      "email": "usuariotest2@gmail.com",
+      "company": "USER2 I.N.C.",
+      "active": true
+    }
+  ]
+}
