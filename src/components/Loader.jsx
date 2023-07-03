@@ -1,5 +1,5 @@
 import spinnerImg from '../assets/loader-spinner.gif';
-import '../../Loader.css';
+import '../Loader.css';
 
 
 const Loader = () => {
