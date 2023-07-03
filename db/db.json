@@ -21,14 +21,6 @@
       "email": "usuario@gmail.com",
       "company": "USER INC",
       "active": true
-    },
-    {
-      "id": "JsuWonl",
-      "name": "Usuario test 2",
-      "phone": "5125125125",
-      "email": "usuariotest2@gmail.com",
-      "company": "USER2 I.N.C.",
-      "active": true
     }
   ]
 }

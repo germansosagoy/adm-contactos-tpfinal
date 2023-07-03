@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from '../components/Loader';
 
 const CreateEmployee = () => {
+  const [showLoader, setShowLoader] = useState(false);
   const [employee, setEmployee] = useState({
     id: "",
     name: "",
@@ -26,7 +28,7 @@ const CreateEmployee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, phone, email, company} = employee;
-
+    
     // Validar los campos requeridos
     if (!name || !phone || !email || !company) {
       setErrors({
@@ -37,7 +39,7 @@ const CreateEmployee = () => {
       });
       return;
     }
-
+    setShowLoader(true)
     fetch("http://localhost:3000/employees", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -49,13 +51,20 @@ const CreateEmployee = () => {
       })
       .catch((error) => {
         console.log(error.message);
-      });
+        setShowLoader(false);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      })
   };
 
   const { id, name, phone, email, company, active } = employee;
 
   return (
     <div>
+      {showLoader ? (
+        <Loader />
+      ) : (
       <div className="row">
         <div className="offset-lg-3 col-lg-6">
           <form className="container" onSubmit={handleSubmit}>
@@ -145,6 +154,7 @@ const CreateEmployee = () => {
           </form>
         </div>
       </div>
+      )};
     </div>
   );
 };

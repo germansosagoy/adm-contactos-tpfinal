@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import Loader from '../components/Loader';
 
 const EditEmployee = () => {
   const { empid } = useParams();
+  const [showLoader, setShowLoader] = useState(false);
 
   const [employee, setEmployee] = useState({
     id: "",
@@ -26,13 +28,16 @@ const EditEmployee = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setShowLoader(true)
     fetch("http://localhost:3000/employees/" + empid)
       .then((res) => res.json())
       .then((resp) => {
         setEmployee(resp);
+        setShowLoader(false)
       })
       .catch((err) => {
         console.log(err.message);
+        setShowLoader(false)
       });
   }, [empid]);
 
@@ -70,6 +75,10 @@ const EditEmployee = () => {
   return (
     <div>
       <div className="row">
+        {showLoader ? (
+          <Loader/>
+        ) : (
+
         <div className="offset-lg-3 col-lg-6">
           <form className="container" onSubmit={handleSubmit}>
             <div className="card" style={{ textAlign: "left" }}>
@@ -153,7 +162,8 @@ const EditEmployee = () => {
             </div>
           </form>
         </div>
-      </div>
+      )};
+      </div>        
     </div>
   );
 };
